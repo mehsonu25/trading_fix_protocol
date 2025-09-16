@@ -1,11 +1,12 @@
+import allocation_model.AllocationInstructionModel
 import quickfix.field.Quantity
 import quickfix.fix44.AllocationInstruction
 
 object AllocationInstructionFactory {
   
-  def createNewAllocationInstruction: AllocationInstruction = {
+  def createNewAllocationInstruction(allocationInstruction: AllocationInstructionModel): AllocationInstruction =
     val ai = new AllocationInstruction()
-    ai.set(new Quantity(10d))
+    ai.set(new Quantity(allocationInstruction.quantity.value))
     ai
-  }
+
 }
